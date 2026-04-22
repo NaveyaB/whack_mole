@@ -63,12 +63,6 @@ script.js
 
 ---
 
-## 📸 Preview
-
-(Add screenshots here)
-
----
-
 ## 🙌 Author
 
 **Naveya**
