@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mole Game Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 class="title">Whack-A-Mole</h1>
+
+<!-- LEVEL SCREEN -->
+<div id="levelScreen" class="level-container">
+  
+  <div class="level-card fade-up">
+    <h1 class="game-title">Whack-A-Mole</h1>
+    <p class="subtitle">Choose your difficulty</p>
+
+    <div class="level-buttons">
+      <button class="level-btn easy" onclick="startGame('easy')">
+        Easy
+        <span>Slow & Relaxed</span>
+      </button>
+
+      <button class="level-btn medium" onclick="startGame('medium')">
+        Medium
+        <span>Balanced Speed</span>
+      </button>
+
+      <button class="level-btn hard" onclick="startGame('hard')">
+        Hard
+        <span>Fast & Challenging</span>
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- GAME UI -->
+<div id="gameUI" class="fade-in" style="display:none;">
+  <div class="topbar">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <div>
+      Score: <b id="score">0</b> | Time: <b id="time">30</b>s
+    </div>
+  </div>
+
+  <div class="ground">
+    <div id="game"></div>
+  </div>
+</div>
+
+<!-- GAME OVER CARD -->
+<div id="overlay" class="overlay">
+  <div class="card glass scale-in">
+    
+    <!-- CLOSE BUTTON -->
+    <button class="close-btn" onclick="goBack()">✖</button>
+
+    <!-- ANIMATED MOLE -->
+    <div class="mole-avatar"></div>
+
+    <h2>Game Over</h2>
+    <p id="finalScore"></p>
+
+    <button onclick="restartGame()">Restart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

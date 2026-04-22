@@ -1,0 +1,285 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+ background: #f9fafb;
+  /* background: linear-gradient(135deg, #dfe9f3, #ffffff); */
+  color: #2c3e50;
+}
+
+/* Title */
+.title {
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.back-btn {
+  background: transparent;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+/* Cards */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+button {
+  margin: 8px;
+  padding: 10px 15px;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  color: #333;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+.card {
+  position: relative;
+  padding-top: 30px;
+}
+.mole-avatar {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+  background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/cover;
+  animation: bounce 1s infinite;
+}
+
+/* Cute bounce idle animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Ground */
+.ground {
+  padding: 20px;
+  background: linear-gradient(#81c784, #2e7d32);
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.level-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+}
+
+.level-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 16px;
+  width: 280px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.game-title {
+  margin: 0;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+
+.level-container {
+  position: fixed;   /* 👈 important */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+}
+
+#levelScreen {
+  display: flex;
+}
+
+.level-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.level-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #ecf0f1;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.level-btn span {
+  display: block;
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+/* Hover effect */
+.level-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Active click feel */
+.level-btn:active {
+  transform: scale(0.97);
+}
+#gameUI {
+  background: #ffffff; /* ✅ unify */
+  min-height: 100vh;
+}
+.card {
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+.ground {
+  padding: 20px;
+  background: #e8f5e9; /* light green */
+  border-radius: 20px;
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Color accents */
+.easy { border-left: 5px solid #2ecc71; }
+.medium { border-left: 5px solid #f39c12; }
+.hard { border-left: 5px solid #e74c3c; }
+/* Grid */
+#game {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 15px;
+}
+
+/* Hole */
+.hole {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #4e342e, #1b1b1b);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mole */
+.mole::after {
+  content: "";
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  width: 60px;
+  height: 60px;
+  background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/cover;
+  animation: popUp 0.25s forwards, wiggle 0.6s infinite;
+}
+
+/* small wiggle (alive feel) */
+@keyframes wiggle {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(5deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Animations */
+@keyframes popUp {
+  from { bottom: -70px; }
+  to { bottom: 10px; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Overlay with blur */
+.overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  backdrop-filter: blur(6px);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+}
